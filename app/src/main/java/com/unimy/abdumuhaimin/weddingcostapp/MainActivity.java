@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,8 +30,7 @@ public class MainActivity extends AppCompatActivity implements ItemDialog.ItemDi
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-
+        mAdapter.notifyItemInserted(list.size() - 1);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,5 +59,6 @@ public class MainActivity extends AppCompatActivity implements ItemDialog.ItemDi
     @Override
     public void applyText(String item) {
         list.add(item);
+        Log.d("list",list.toString());
     }
 }
