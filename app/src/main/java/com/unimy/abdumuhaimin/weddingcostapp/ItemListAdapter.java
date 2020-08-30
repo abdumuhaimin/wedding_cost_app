@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
@@ -29,7 +28,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemListAdapter.ItemViewHolder holder, int position) {
+    public void onBindViewHolder(ItemListAdapter.ItemViewHolder holder, int position) {
         String mCurrent = mItemList.get(position);
         holder.wordItemView.setText(mCurrent);
     }
@@ -39,7 +38,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
         return mItemList.size();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    public class ItemViewHolder extends RecyclerView.ViewHolder {
         public final TextView wordItemView;
         final ItemListAdapter mAdapter;
         public ItemViewHolder(View itemView, ItemListAdapter adapter) {

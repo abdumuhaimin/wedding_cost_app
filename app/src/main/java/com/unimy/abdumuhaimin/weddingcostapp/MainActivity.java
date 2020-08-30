@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity implements ItemDialog.ItemDi
     private RecyclerView mRecyclerView;
     private ItemListAdapter mAdapter;
 
-
     private LinkedList<String> list = new LinkedList<>();
+    private int mCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity implements ItemDialog.ItemDi
         mAdapter = new ItemListAdapter(this,list);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        mAdapter.notifyItemInserted(list.size() - 1);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements ItemDialog.ItemDi
     @Override
     public void applyText(String item) {
         list.add(item);
+        mRecyclerView.getAdapter().notifyItemInserted(list.size() - 1);
         Log.d("list",list.toString());
     }
 }
